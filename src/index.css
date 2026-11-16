@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#fcfdfd] text-[#0d131f] antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Refined, quiet scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+/* Subtle micro-interactions and transitions */
+.transition-subtle {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+  border-color: #cbd5e1;
+}
+
+/* Clean status pills */
+.badge-building {
+  @apply bg-amber-50 text-amber-900 border border-amber-200/80;
+}
+.badge-near {
+  @apply bg-blue-50 text-blue-900 border border-blue-200/80;
+}
+.badge-reached {
+  @apply bg-emerald-50 text-emerald-900 border border-emerald-200/80;
+}
+.badge-offer {
+  @apply bg-purple-50 text-purple-900 border border-purple-200/80;
+}
