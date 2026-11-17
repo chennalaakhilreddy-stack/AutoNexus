@@ -18,7 +18,13 @@ export const App: React.FC = () => {
     try {
       const saved = localStorage.getItem('autonexus_vehicles_data');
       if (saved) {
-        return JSON.parse(saved);
+        const parsed: Vehicle[] = JSON.parse(saved);
+        return INITIAL_VEHICLES.map((initV) => {
+          const match = parsed.find((p) => p.id === initV.id);
+          return match
+            ? { ...match, image: initV.image }
+            : initV;
+        });
       }
     } catch (e) {
       console.warn('LocalStorage error:', e);
